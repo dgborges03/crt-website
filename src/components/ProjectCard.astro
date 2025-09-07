@@ -1,0 +1,56 @@
+---
+ interface Props {
+   title: string;
+   desc: string;
+   image: string; // import from src/assets OR a /public path
+   link?: string | null;
+   flip?: boolean; // when true, image on the right, text on the left
+ }
+ 
+ const { title, desc, image, link, flip = false } = Astro.props;
+---
+ 
+ <article
+   class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/50 shadow-lg"
+ >
+   <div
+     class={`grid grid-cols-1 md:grid-cols-2 items-stretch ${
+       flip ? "md:[&>div:first-child]:order-2 md:[&>div:last-child]:order-1" : ""
+     }`}
+   >
+     <!-- Image -->
+     <div class="relative">
+       <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent md:from-transparent"></div>
+       <img
+         src={image}
+         alt={title}
+         class="h-56 w-full object-cover md:h-full md:object-cover"
+         loading="lazy"
+         decoding="async"
+       />
+     </div>
+ 
+     <!-- Content -->
+     <div class="p-6 sm:p-8 flex flex-col justify-center">
+       <h3 class="font-display text-lg sm:text-xl text-orange-400">
+         {title}
+       </h3>
+       <p class="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed">
+         {desc}
+       </p>
+ 
+       {link && (
+         <a
+           href={link}
+           class="mt-5 inline-flex w-fit items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-sm hover:bg-white/5"
+         >
+           View project
+           <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+             <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10"/>
+           </svg>
+         </a>
+       )}
+     </div>
+   </div>
+ </article>
+ 

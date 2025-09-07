@@ -1,0 +1,63 @@
+---
+ import Layout from "../layouts/Layout.astro";
+ import ProjectCard from "../components/ProjectCard.astro";
+ 
+ // EXAMPLE DATA — replace with real projects.
+ // For images:
+ // - If in src/assets, import like: import roverImg from "../assets/rover.jpg" and use image={roverImg}
+ // - If in public/images, use a string path like "/images/rover.jpg"
+ const projects = [
+   {
+     title: "Combat Robotics",
+     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed maximus viverra nunc, in lobortis sapien. Vivamus iaculis, ante nec semper gravida, libero lorem pulvinar ligula, eget eleifend enim quam sit amet massa.",
+     image: "/project-imgs/combat-robot.jpg",
+     link: "#"
+   },
+   {
+     title: "Project name",
+     desc: "This project does a little bit of this and a little bit of that B-)",
+     image: "#",
+     link: "#"
+   },
+   {
+     title: "Project name",
+     desc: "This project does a little bit of this and a little bit of that B-)",
+     image: "#",
+     link: "#"
+   },
+   {
+     title: "Project name",
+     desc: "This project does a little bit of this and a little bit of that B-)",
+     image: "#",
+     link: "#"
+   },
+ ];
+---
+ 
+ <Layout>
+   <!-- Page header -->
+   <section class="border-b border-white/5 bg-zinc-950/60">
+     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+       <h1 class="font-display text-2xl sm:text-4xl text-orange-400">
+         Projects
+       </h1>
+       <p class="mt-3 max-w-2xl text-zinc-300">
+         A selection of CRT builds — from a little bit of this and a little bit of that. We do it all and achieve greatness!
+       </p>
+     </div>
+   </section>
+ 
+   <!-- Alternating, full-width cards (stacked) -->
+   <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14 space-y-8 sm:space-y-10">
+     {projects.map((p, i) => (
+       <ProjectCard
+         title={p.title}
+         desc={p.desc}
+         image={p.image}
+         link={p.link}
+         flip={i % 2 === 1}
+       />
+     ))}
+   </section>
+ </Layout>
+ 

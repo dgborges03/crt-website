@@ -1,0 +1,172 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const images = [
+  { src: "/gallery-imgs/crt-FR1.jpg", alt: "CRT Food Review at YGF Malatang 😋" },
+  { src: "/gallery-imgs/new-couch.jpg",  alt: "New couch in the lab!" },
+  { src: "/gallery-imgs/5090.jpg", alt: "New PC for simulations B-)" },
+  { src: "/gallery-imgs/caltech-mit.png", alt: "Caltech all day everyday" },
+  { src: "/gallery-imgs/team-logo.png", alt: "ChatGPT Logo lol" },
+  { src: "/gallery-imgs/boba-run.jpg", alt: "Boba acquired!" },
+  { src: "/gallery-imgs/scar-event.jpg", alt: "CRT volunteering at Robot Combat League National Championship in Santa Ana!" },
+];
+---
+
+<Layout>
+  <!-- Page header -->
+  <section class="border-b border-white/5 bg-zinc-950/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <h1 class="font-display text-2xl sm:text-4xl text-orange-400">Gallery</h1>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+        Pictures of builds, fun events, or of anything else!...
+      </p>
+    </div>
+  </section>
+
+  <!-- Collage -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+      {images.map((img, idx) => (
+        <figure class="[break-inside:avoid] mb-4 overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/40 shadow">
+          <button
+            type="button"
+            class="group block w-full text-left"
+            data-full={img.src}
+            data-alt={img.alt}
+            data-idx={idx}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              class="w-full h-auto align-top transition duration-300 group-hover:opacity-90 group-hover:scale-[1.01]"
+              loading="lazy"
+              decoding="async"
+            />
+          </button>
+          <figcaption class="px-3 py-2 text-xs text-zinc-400">{img.alt}</figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  <!-- Lightbox (fullscreen, centered when open) -->
+  <dialog id="lightbox" class="backdrop:bg-black/70 p-0 open:animate-[fade-in_.2s_ease]">
+    <div id="lb-inner" class="relative rounded-xl border border-white/10 bg-zinc-900/90">
+      <button
+        type="button"
+        id="lb-close"
+        class="absolute right-3 top-3 z-10 rounded-lg border border-white/10 bg-black/60 px-3 py-1.5 text-sm hover:bg-black/70"
+        aria-label="Close"
+      >
+        ✕
+      </button>
+      <img
+        id="lb-img"
+        src=""
+        alt=""
+        class="block m-auto max-w-[90svw] max-h-[90svh] w-auto object-contain"
+      />
+      <p id="lb-cap" class="px-4 py-3 text-center text-sm text-zinc-300"></p>
+    </div>
+  </dialog>
+
+  <script is:inline>
+    const dlg = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lb-img");
+    const lbCap = document.getElementById("lb-cap");
+    const lbClose = document.getElementById("lb-close");
+
+    let currentIdx = 0;
+    const thumbs = Array.from(document.querySelectorAll("[data-full]"));
+
+    function showImage(idx) {
+      const el = thumbs[idx];
+      if (!el) return;
+      const src = el.getAttribute("data-full") || "";
+      const alt = el.getAttribute("data-alt") || "";
+      if (lbImg) lbImg.setAttribute("src", src);
+      if (lbImg) lbImg.setAttribute("alt", alt);
+      if (lbCap) lbCap.textContent = alt;
+    }
+
+    // Open lightbox
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const btn = target.closest("[data-full]");
+      if (!btn) return;
+
+      const idxAttr = btn.getAttribute("data-idx");
+      currentIdx = idxAttr ? parseInt(idxAttr, 10) : 0;
+
+      showImage(currentIdx);
+      if (dlg && "showModal" in dlg) dlg.showModal();
+    });
+
+    // Close actions
+    if (lbClose) {
+      lbClose.addEventListener("click", () => dlg && dlg.close && dlg.close());
+    }
+    if (dlg) {
+      // Close when clicking the backdrop (dialog itself)
+      dlg.addEventListener("click", (e) => {
+        if (e.target === dlg) {
+          dlg.close && dlg.close();
+        }
+      });
+
+      // Cleanup on close so nothing lingers at the bottom
+      dlg.addEventListener("close", () => {
+        if (lbImg) lbImg.removeAttribute("src");
+        if (lbCap) lbCap.textContent = "";
+      });
+    }
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (!dlg || !("open" in dlg) || !dlg.open) return;
+      if (e.key === "Escape") {
+        dlg.close && dlg.close();
+      } else if (e.key === "ArrowRight") {
+        currentIdx = (currentIdx + 1) % thumbs.length;
+        showImage(currentIdx);
+      } else if (e.key === "ArrowLeft") {
+        currentIdx = (currentIdx - 1 + thumbs.length) % thumbs.length;
+        showImage(currentIdx);
+      }
+    });
+  </script>
+
+  <style is:global>
+    @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+
+    /* Closed dialog: ensure it's not visible or taking space */
+    dialog#lightbox {
+      display: none;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    /* Open dialog: fullscreen & centered */
+    dialog#lightbox[open] {
+      width: 100vw;
+      height: 100svh;
+      display: grid;
+      place-items: center;
+      background: transparent;
+    }
+
+    /* Optional max width for inner content */
+    #lb-inner {
+      max-width: min(96vw, 1200px);
+    }
+
+    /* Image sizing when open */
+    dialog#lightbox[open] #lb-img {
+      max-width: 90svw;
+      max-height: 90svh;
+      object-fit: contain;
+    }
+  </style>
+</Layout>

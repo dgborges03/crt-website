@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+import LeaderCard from "../components/LeaderCard.astro";
+import MemberCard from "../components/MemberCard.astro";
+
+// EXAMPLE DATA — replace with your real team.
+// Images: either import from src/assets and pass the import, OR use /images/... from public
+const leadership = [
+  {
+    name: "Donny the goat",
+    role: "Project Lead — ... '26",
+    image: "/team-imgs/donny.jpg",
+    linkedin: "https://www.linkedin.com/in/example",
+    email: "#", // becomes mail to: ...@caltech.edu
+    instagram: "#",
+    facebook: "#"
+  },
+  {
+    name: "Name of Person",
+    role: "Role - Major 'Year",
+    image: "#",
+    linkedin: "#",
+    email: "#", // full email works too
+    facebook: "#",
+    instagram: "#"
+  },
+  {
+    name: "Name of Person",
+    role: "Role - Major 'Year",
+    image: "#",
+    linkedin: "#",
+    email: "#", // full email works too
+    facebook: "#",
+    instagram: "#"
+  },
+  {
+    name: "Name of Person",
+    role: "Role - Major 'Year",
+    image: "#",
+    linkedin: "#",
+    email: "#", // full email works too
+    facebook: "#",
+    instagram: "#"
+  },
+  {
+    name: "Name of Person",
+    role: "Role - Major 'Year",
+    image: "#",
+    linkedin: "#",
+    email: "#", // full email works too
+    facebook: "#",
+    instagram: "#"
+  },
+];
+
+const members = [
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+];
+---
+
+<Layout>
+  <!-- Page header -->
+  <section class="border-b border-white/5 bg-zinc-950/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <h1 class="font-display text-2xl sm:text-4xl text-orange-400">Team</h1>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+        Meet the CRT family — from leadership, project leads, and the people who makes the things happen happen. You feel?
+      </p>
+    </div>
+  </section>
+
+  <!-- Leadership / ExComm / Leads (3 columns) -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400">Leadership & Project Leads</h2>
+    <div class="mt-6 flex flex-wrap justify-center gap-6 sm:gap-7 md:gap-8">
+      {leadership.map((p) => (
+        <div class="w-full sm:w-[22rem]">
+          <LeaderCard
+            name={p.name}
+            role={p.role}
+            image={p.image}
+            linkedin={p.linkedin}
+            email={p.email}
+            instagram={p.instagram}
+            facebook={p.facebook}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Members (4 columns) -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16">
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400">Members</h2>
+    <div class="mt-6 flex flex-wrap justify-center gap-5 sm:gap-6 md:gap-7">
+      {members.map((m) => (
+        <div class="flex-1 min-w-[14rem] max-w-[18rem]">
+          <MemberCard
+            name={m.name}
+            major={m.major}
+            projects={m.projects}
+            image={m.image}
+            linkedin={m.linkedin}
+            email={m.email}
+            instagram={m.instagram}
+            facebook={m.facebook}
+          />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA: Join Us -->
+  <section class="border-t border-white/5 bg-zinc-900/40">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <h3 class="font-display text-xl sm:text-2xl text-orange-400">Want to Join Our Team?</h3>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+        We welcome anybody and everybody who are enthusiastic builders, coders, designers, and storytellers. Stop by our lab which is located
+        in the basement of Firestone or reach out to leadership.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/contact" class="inline-flex items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400">
+          Contact Leadership
+        </a>
+        <a href="/projects" class="inline-flex items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">
+          Explore Projects
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

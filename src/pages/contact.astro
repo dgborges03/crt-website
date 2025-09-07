@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Replace with your actual info
+const sponsorPacket = "#";   // put file in /public/docs/
+const leadershipEmail = "#";
+const discordLink = "#";
+---
+
+<Layout>
+  <!-- Two columns -->
+  <section class="flex-grow mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Sponsors -->
+      <section class="rounded-2xl border border-white/10 bg-zinc-900/50 p-8 text-center shadow-md">
+        <h2 class="font-display text-xl text-orange-400">Collaborators & Sponsors</h2>
+        <p class="mt-3 text-zinc-300 leading-relaxed">
+          We're grateful for partners who support us through funding, equipment, or mentorship.
+        </p>
+        <div class="mt-6 flex flex-col gap-3">
+          <a
+            href={sponsorPacket}
+            class="inline-flex justify-center items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5"
+          >
+            View Sponsor Packet (PDF)
+          </a>
+          <a
+            href={`mailto:${leadershipEmail}`}
+            class="inline-flex justify-center items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400"
+          >
+            Email Us
+          </a>
+        </div>
+      </section>
+
+      <!-- Joining -->
+      <section class="rounded-2xl border border-white/10 bg-zinc-900/50 p-8 text-center shadow-md">
+        <h2 class="font-display text-xl text-orange-400">Interested in Joining?</h2>
+        <p class="mt-3 text-zinc-300 leading-relaxed">
+          We welcome students from all majors and skill levels. Start by joining our Discord or by simply reaching out to leadership.
+        </p>
+        <div class="mt-6 flex flex-col gap-3">
+          <a
+            href="/team"
+            class="inline-flex justify-center items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5"
+          >
+            Reach out to Leadership
+          </a>
+          <a
+            href={discordLink}
+            class="inline-flex justify-center items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400"
+          >
+            Join our Discord!
+          </a>
+        </div>
+      </section>
+    </div>
+  </section>
+</Layout>

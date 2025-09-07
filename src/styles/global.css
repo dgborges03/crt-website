@@ -1,0 +1,43 @@
+
+@import "tailwindcss";
+
+/* App theme tokens (Tailwind v4 reads CSS vards fine) */
+:root {
+  --crt-orange: 255 111 0; /* #FF6F00 */
+}
+
+/* Base tweaks */
+* { outline-offset: 2px; }
+::selection { background: rgb(var(--crt-orange) / 0.25); }
+a { text-underline-offset: 2px; text-decoration-color: rgb(255 255 255 / 0.2); }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    }
+
+* { outline-offset: 2px; }
+a { text-underline-offset: 2px; text-decoration-color: rgb(255 255 255 / 0.2); }
+
+/* Sticky footer layout without touching Layout.astro */
+html, body {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;           /* fill the viewport */
+  display: flex;               /* vertical layout */
+  flex-direction: column;
+}
+
+body > main {
+  flex: 1 0 auto;              /* let <main> grow and push footer down */
+  display: flex;               /* keeps inner sections stacking nicely */
+  flex-direction: column;
+}
+
+/* Optional: prevent weird margin-collapsing that can pull the footer up */
+body > main > section:first-child {
+  margin-top: 0;
+}
+
