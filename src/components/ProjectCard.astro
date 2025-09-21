@@ -19,16 +19,16 @@
      }`}
    >
      <!-- Image -->
-     <div class="relative">
-       <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent md:from-transparent"></div>
-       <img
-         src={image}
-         alt={title}
-         class="h-56 w-full object-cover md:h-full md:object-cover"
-         loading="lazy"
-         decoding="async"
-       />
-     </div>
+    <div class="relative w-full h-[324px] overflow-hidden rounded-l-2xl md:rounded-l-2xl md:rounded-r-none">
+      <div class="absolute inset-0 pointer-events-none bg-gradient-to-t from-zinc-950/40 via-transparent to-transparent md:from-transparent"></div>
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
  
      <!-- Content -->
      <div class="p-6 sm:p-8 flex flex-col justify-center">
@@ -42,6 +42,8 @@
        {link && (
          <a
            href={link}
+           target="_blank"
+           rel="noreferrer"
            class="mt-5 inline-flex w-fit items-center gap-2 rounded-xl border border-white/10 px-3 py-2 text-sm hover:bg-white/5"
          >
            View project
