@@ -3,8 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import LeaderCard from "../components/LeaderCard.astro";
 import MemberCard from "../components/MemberCard.astro";
 
-// EXAMPLE DATA — replace with your real team.
-// Images: either import from src/assets and pass the import, OR use /images/... from public
 const leadership = [
   {
     name: "Donny the goat",
@@ -71,7 +69,8 @@ const members = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <h1 class="font-display text-2xl sm:text-4xl text-orange-400">Team</h1>
       <p class="mt-3 max-w-3xl text-zinc-300">
-        Meet the CRT family — from leadership, project leads, and the people who makes the things happen happen. You feel?
+        Meet the CRT family — from leadership, project leads, and the people who make
+        our robots a reality.
       </p>
     </div>
   </section>
@@ -122,17 +121,9 @@ const members = [
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
       <h3 class="font-display text-xl sm:text-2xl text-orange-400">Want to Join Our Team?</h3>
       <p class="mt-3 max-w-3xl text-zinc-300">
-        We welcome anybody and everybody who are enthusiastic builders, coders, designers, and storytellers. Stop by our lab which is located
-        in the basement of Firestone or reach out to leadership.
+        We welcome anybody and everybody who are enthusiastic builders, coders, and designers. Stop by our lab which is located
+        in the basement of Firestone (Guggenheim B167) or reach out to leadership.
       </p>
-      <div class="mt-6 flex flex-wrap gap-3">
-        <a href="/contact" class="inline-flex items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400">
-          Contact Leadership
-        </a>
-        <a href="/projects" class="inline-flex items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">
-          Explore Projects
-        </a>
-      </div>
     </div>
   </section>
 </Layout>
