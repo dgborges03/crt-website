@@ -4,62 +4,25 @@ import LeaderCard from "../components/LeaderCard.astro";
 import MemberCard from "../components/MemberCard.astro";
 
 const leadership = [
-  {
-    name: "Donny the goat",
-    role: "Project Lead — ... '26",
-    image: "/team-imgs/donny.jpg",
-    linkedin: "https://www.linkedin.com/in/example",
-    email: "#", // becomes mail to: ...@caltech.edu
-    instagram: "#",
-    facebook: "#"
-  },
-  {
-    name: "Name of Person",
-    role: "Role - Major 'Year",
-    image: "#",
-    linkedin: "#",
-    email: "#", // full email works too
-    facebook: "#",
-    instagram: "#"
-  },
-  {
-    name: "Name of Person",
-    role: "Role - Major 'Year",
-    image: "#",
-    linkedin: "#",
-    email: "#", // full email works too
-    facebook: "#",
-    instagram: "#"
-  },
-  {
-    name: "Name of Person",
-    role: "Role - Major 'Year",
-    image: "#",
-    linkedin: "#",
-    email: "#", // full email works too
-    facebook: "#",
-    instagram: "#"
-  },
-  {
-    name: "Name of Person",
-    role: "Role - Major 'Year",
-    image: "#",
-    linkedin: "#",
-    email: "#", // full email works too
-    facebook: "#",
-    instagram: "#"
-  },
+  { name: "Donny Lu", role: "President - PHY '26", projects: "Motorized Couch, Combat Robotics, CCBR Quadruped", image: "/crt-logo.png", linkedin: "https://www.linkedin.com/in/rebnoob", email: "donny@caltech.edu"},
+  { name: "Tatyana McVay", role: "Vice President - PHY '28", projects: "Combat Robotics Lead, CCBR Quadruped, Robosub", image: "/team-imgs/tatyanaM.jpeg", linkedin: "https://www.linkedin.com/in/tatyana-mcvay-a17801253", email: "tmcvay@caltech.edu"},
+  { name: "Donavan Borges", role: "Treasurer - CS '26", projects: "Business Lead, Combat Robotics, CCBR Quadruped", image:"/team-imgs/donavanB.jpeg", linkedin: "https://www.linkedin.com/in/donavan-borges-57a2aa245", email: "dborges@caltech.edu"},
+  { name: "Susanna Cao", role: "Secretary - ME '27", projects: "", image:"/crt-logo.png", linkedin: "#", email: "#"},
+  { name: "Luis Yael Serrano Laguna", role: "Mechanical Lead - ME '28", projects: "Motorized Couch, CCBR Quadruped, Robosub", image: "/crt-logo.png", linkedin: "https://www.linkedin.com/in/luis-serrano-laguna/", email: "serranolaguna.luis034@gmail.com"},
+  { name: "Andrey Korolev", role: "Saftey Officer - EE '27", projects: "VTOL Lead", image: "/crt-logo.png", linkedin: "#", email: "#"},
+  { name: "Ying Tan", role: "Business Lead - ME '27", projects: "", image: "/crt-logo.png", linkedin: "#", email: "#"},
 ];
 
 const members = [
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
-  { name: "Name of Person",   major: "Major 'Year", projects: "project name, project name",      image: "#",   linkedin: "#", email: "#", instagram: "#", facebook: "#" },
+  { name: "Cesar Delgadillo", major: "EE '27", projects: "CCBR Quadruped", image: "/team-imgs/cesarD.jpg", linkedin: "https://www.linkedin.com/in/cesar-delgadillo-967305232", email: "cdelgadi@caltech.edu"},
+  { name: "Kiara Donolo", major: "ME '29", projects: "Combat Robotics", image: "/team-imgs/kiaraD.jpg", linkedin: "https://www.linkedin.com/in/kiara-donolo-3b3985295/", email: "kdonolo@caltech.edu"},
+  { name: "Riya Gupta", major: "ME '29", projects: "Combat Robotics", image: "/team-imgs/riyaG.png", linkedin: "https://www.linkedin.com/in/-riya--gupta/", email: "rgupta@caltech.edu"},
+  { name: "Anshi Paul", major: "EE '29", projects: "Motorized Couch, Combat Robotics", image: "/team-imgs/anshiP.jpeg", linkedin: "https://www.linkedin.com/in/anshi-paul-773a53257/", email: "anshipaul@outlook.com"},
+  { name: "Abubakr Nazriev", major: "CS '29", projects: "Motorized Couch, VTOL", image: "/crt-logo.png"},
+  { name: "Parnika Singh", major: "ME '29", projects: "Motorized Couch, CCBR Quadruped", image: "/team-imgs/parnikaS.jpg", linkedin: "https://www.linkedin.com/in/parnika-singh-50a6387z67/", email: "singhparnika23@gmail.com"},
+  { name: "Zoe Lee", major: "ME or EE '29", projects: "Motorized Couch", image: "/crt-logo.png", linkedin: "https://www.linkedin.com/in/zoe-l-935078332?trk=contact-info", email: "goodzoe4@gmail.com"},
+  { name: "Amanda Flor Costa", major: "ChemE '29", projects: "Motorized Couch", image: "/team-imgs/amandaC.jpeg", email: "aflorcos@caltech.edu"},
+  { name: "Umar Mohammad", major: "CS '29", projects: "VTOL", image: "/team-imgs/umarM.jpeg", linkedin: "https://www.linkedin.com/in/umarmohammad0427", email: "umar@caltech.edu"},
 ];
 ---
 
@@ -77,18 +40,19 @@ const members = [
 
   <!-- Leadership / ExComm / Leads (3 columns) -->
   <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
-    <h2 class="font-display text-xl sm:text-2xl text-orange-400">Leadership & Project Leads</h2>
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400 text-center">Leadership & Project Leads</h2>
     <div class="mt-6 flex flex-wrap justify-center gap-6 sm:gap-7 md:gap-8">
       {leadership.map((p) => (
         <div class="w-full sm:w-[22rem]">
           <LeaderCard
             name={p.name}
             role={p.role}
+            projects={p.projects}
             image={p.image}
             linkedin={p.linkedin}
             email={p.email}
-            instagram={p.instagram}
-            facebook={p.facebook}
+            // instagram={p.instagram}
+            // facebook={p.facebook}
           />
         </div>
       ))}
@@ -97,7 +61,7 @@ const members = [
 
   <!-- Members (4 columns) -->
   <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16">
-    <h2 class="font-display text-xl sm:text-2xl text-orange-400">Members</h2>
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400 text-center">Members</h2>
     <div class="mt-6 flex flex-wrap justify-center gap-5 sm:gap-6 md:gap-7">
       {members.map((m) => (
         <div class="flex-1 min-w-[14rem] max-w-[18rem]">
@@ -108,13 +72,62 @@ const members = [
             image={m.image}
             linkedin={m.linkedin}
             email={m.email}
-            instagram={m.instagram}
-            facebook={m.facebook}
+            // instagram={m.instagram}
+            // facebook={m.facebook}
           />
         </div>
       ))}
     </div>
   </section>
+
+  <!-- Alumni & Advisor -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400 text-center">
+      Alumni Mentors & Club Advisor
+    </h2>
+    <p class="mt-3 text-zinc-300 leading-relaxed text-center max-w-3xl mx-auto">
+      We're grateful for the guidance and support from our mentors and advisor, 
+      who help us grow as engineers and keep the CRT legacy strong.
+    </p>
+
+    <div class="mt-8 flex flex-wrap justify-center gap-6">
+      <!-- Alumni Mentor Example -->
+      <div class="max-w-xs w-full rounded-2xl border border-white/10 bg-zinc-900/50 shadow p-6 flex flex-col items-center text-center">
+        <img src="/team-imgs/maxxI.jpg" alt="Alumni Mentor" 
+            class="h-40 w-40 object-cover rounded-full border border-white/10 shadow" />
+        <h3 class="mt-4 font-display text-orange-400 text-lg">Maxx Ibarra</h3>
+        <p class="text-sm text-zinc-300">Alumni Mentor - Lead Mechanical Engineer at Rotender</p>
+        <div class="mt-3 flex gap-3">
+          <a href="https://www.linkedin.com/in/maxx-ibarra-2b5181168/" target="_blank" rel="noreferrer" class="hover:text-orange-400">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+              <path d="M4.98 3.5A2.5 2.5 0 1 1 2.5 6a2.5 2.5 0 0 1 2.48-2.5ZM3 8.5h4v12H3v-12Zm7 0h3.8v1.64h.05c.53-.95 1.83-1.95 3.76-1.95 4.02 0 4.77 2.65 4.77 6.09V20.5h-4v-5.38c0-1.28-.02-2.92-1.78-2.92-1.78 0-2.06 1.39-2.06 2.83v5.47h-4v-12Z"/>
+            </svg>
+          </a>
+          <a href="maxxiba@alumni.caltech.edu" class="hover:text-orange-400">
+            <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
+              <path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11Zm2.5-.5a.5.5 0 0 0-.5.5v.26l8 5.24 8-5.24V6.5a.5.5 0 0 0-.5-.5h-15Zm15.5 3.58-7.47 4.9a1 1 0 0 1-1.06 0L4 9.58V17.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V9.58Z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Advisor Example -->
+      <div class="max-w-xs w-full rounded-2xl border border-white/10 bg-zinc-900/50 shadow p-6 flex flex-col items-center text-center">
+        <img src="/team-imgs/joelB.avif" alt="Faculty Advisor" 
+            class="h-40 w-40 object-cover rounded-full border border-white/10 shadow" />
+        <h3 class="mt-4 font-display text-orange-400 text-lg">Joel W. Burdick</h3>
+        <p class="text-sm text-zinc-300">Faculty Advisor · Caltech EAS Division</p>
+        <div class="mt-3 flex gap-3">
+          <a href="https://www.eas.caltech.edu/people/jburdick" target="_blank" rel="noreferrer" class="hover:text-orange-400">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-globe" viewBox="0 0 16 16">
+              <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- CTA: Join Us -->
   <section class="border-t border-white/5 bg-zinc-900/40">

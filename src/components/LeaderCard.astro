@@ -2,6 +2,7 @@
 interface Props {
   name: string;
   role: string;         // e.g., "President — ME '26"
+  projects: string;
   image: string;        // import from src/assets OR /images/... from public
   linkedin?: string;
   email?: string;       // plain email username or full email; we’ll format mailto:
@@ -9,7 +10,7 @@ interface Props {
   facebook?: string;    // full URL
 }
 
-const { name, role, image, linkedin, email, instagram, facebook } = Astro.props;
+const { name, role, projects, image, linkedin, email, instagram, facebook } = Astro.props;
 
 const emailHref = email
   ? (email.includes("@") ? `mailto:${email}` : `mailto:${email}@caltech.edu`)
@@ -29,8 +30,9 @@ const emailHref = email
   </div>
 
   <div class="p-5 justify-items-center">
-    <h3 class="font-display text-base sm:text-lg text-orange-400">{name}</h3>
-    <p class="mt-1 text-sm text-zinc-300">{role}</p>
+    <h3 class="font-display text-base sm:text-lg text-orange-400 text-center">{name}</h3>
+    <p class="mt-1 text-sm text-zinc-300 text-center">{role}</p>
+    <p class="mt-1 text-xs text-zinc-400 text-center">{projects}</p>
 
     <div class="mt-4 flex items-center gap-3">
       {linkedin && (

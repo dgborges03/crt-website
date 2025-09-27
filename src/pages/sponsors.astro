@@ -1,13 +1,154 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-// If your image is in /public/images/about-hero.jpg, use the string path below.
-// If it's in src/assets, import it like:
-// import aboutHero from "../assets/about-hero.jpg";
-// and then set imageSrc = aboutHero.
-const imageSrc = "#";
+// Links you can customize
+const sponsorPacket = "/docs/CRT-Sponsor-Packet.pdf";   // put a PDF in /public/docs/...
+const sponsorEmail  = "mailto:leadership@caltech.edu";  // replace with real address
+
+// Current sponsors (drop logos into /public/images/sponsors/)
+const sponsors = [
+  {
+    name: "California Institute of Technology",
+    logo: "/sponsor-logos/caltech-logo.jpg",   // or .png
+    url: "https://www.caltech.edu/",
+    tier: "Institutional Partner",
+  },
+  {
+    name: "Polymaker",
+    logo: "/sponsor-logos/polymaker-logo.webp",
+    url: "https://www.polymaker.com/",
+    tier: "Material Sponsor",
+  },
+];
+
+// Sponsorship tiers
+const tiers = [
+  {
+    name: "Platinum",
+    amount: "TBD",
+    perks: [
+      "TBD",
+      "TBD",
+      "TBD",
+      "TBD",
+    ],
+  },
+  {
+    name: "Gold",
+    amount: "TBD",
+    perks: [
+      "TBD",
+      "TBD",
+      "TBD",
+      "TBD",
+    ],
+  },
+  {
+    name: "Silver",
+    amount: "TBD",
+    perks: [
+      "TBD",
+      "TBD",
+      "TBD",
+      "TBD",
+    ],
+  },
+  {
+    name: "Bronze",
+    amount: "TBD",
+    perks: [
+      "TBD",
+      "TBD",
+      "TBD",
+      "TBD",
+    ],
+  },
+];
 ---
 
 <Layout>
-    TODO!!
+  <!-- Page header -->
+  <section class="border-b border-white/5 bg-zinc-950/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <h1 class="font-display text-2xl sm:text-4xl text-orange-400">Sponsors</h1>
+      <p class="mt-3 max-w-3xl text-zinc-300">
+        We're grateful to our sponsors who help us turn ambitious ideas into working robots.
+        We couldn't do it without you!
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <!-- <a href={sponsorPacket} class="inline-flex items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">
+          View Sponsor Packet (PDF)
+        </a> -->
+        <a href="/contact" class="inline-flex items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400">
+          Become a Sponsor
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Current Sponsors -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400">Current Sponsors</h2>
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sponsors.map((s) => (
+        <a href={s.url} target="_blank" rel="noreferrer" class="rounded-2xl border border-white/10 bg-zinc-900/50 p-6 hover:bg-white/5 transition">
+          <div class="flex items-center justify-center h-24">
+            <img src={s.logo} alt={`${s.name} logo`} class="max-h-25 w-auto object-contain" loading="lazy" decoding="async" />
+          </div>
+          <div class="mt-4 text-center">
+            <p class="text-zinc-200 font-semibold">{s.name}</p>
+            <p class="text-sm text-zinc-400">{s.tier}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <!-- Sponsorship Tiers -->
+  <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16">
+    <h2 class="font-display text-xl sm:text-2xl text-orange-400">Sponsorship Tiers</h2>
+
+    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {tiers.map((t) => (
+        <div class="rounded-2xl border border-white/10 bg-zinc-900/50 p-6 shadow-lg">
+          <div class="flex items-baseline justify-between">
+            <h3 class="font-display text-orange-400 text-lg">{t.name}</h3>
+            <span class="text-sm text-zinc-400">{t.amount}</span>
+          </div>
+          <ul class="mt-4 space-y-2 text-zinc-300 text-sm leading-relaxed">
+            {t.perks.map((p) => (
+              <li class="flex gap-2">
+                <svg viewBox="0 0 24 24" class="h-4 w-4 mt-1" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- In-kind note -->
+    <div class="mt-8 rounded-2xl border border-white/10 bg-zinc-900/40 p-5">
+      <p class=" text-zinc-300">
+        <span class="text-orange-400 font-display">Support:</span> 
+        Support can be financial or any in-kind donations such as materials,
+        machining, fabrication, components, software, or mentorship. We are
+        grateful for every contribution that helps our team learn, build, and 
+        compete.
+        
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <!-- <div class="mt-8 flex flex-wrap gap-3">
+      <a href={sponsorPacket} class="inline-flex items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">
+        Download Sponsor Packet
+      </a>
+      <a href={sponsorEmail} class="inline-flex items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400">
+        Contact Us
+      </a>
+    </div> -->
+  </section>
 </Layout>
