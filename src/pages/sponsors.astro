@@ -19,43 +19,55 @@ const sponsors = [
 // Sponsorship tiers
 const tiers = [
   {
-    name: "Platinum",
-    amount: "TBD",
+    name: "Copper",
+    amount: "$500+",
     perks: [
-      "TBD",
-      "TBD",
-      "TBD",
-      "TBD",
-    ],
-  },
-  {
-    name: "Gold",
-    amount: "TBD",
-    perks: [
-      "TBD",
-      "TBD",
-      "TBD",
-      "TBD",
-    ],
-  },
-  {
-    name: "Silver",
-    amount: "TBD",
-    perks: [
-      "TBD",
-      "TBD",
-      "TBD",
-      "TBD",
+      "Logo on website (if applicable)",
+      "Email updates on projects",
+      "Personalized thank-you letter",
+      "3D-printed CRT model (for alumni & individual supporters)",
+      "Annual report",
     ],
   },
   {
     name: "Bronze",
-    amount: "TBD",
+    amount: "$3,000+",
     perks: [
-      "TBD",
-      "TBD",
-      "TBD",
-      "TBD",
+      "Includes all Copper benefits",
+      "Small logo on website, T-shirt, and apparel (where applicable)",
+      "Help advertise internships and opportunities",
+      "Framed team photo with signatures",
+    ],
+  },
+  {
+    name: "Silver",
+    amount: "$5,000+",
+    perks: [
+      "Includes all Bronze benefits",
+      "Medium logo placement (site/shirts/bots where applicable)",
+      "Resume book access",
+      "Sponsored tech talk on campus",
+    ],
+  },
+  {
+    name: "Gold",
+    amount: "$10,000+",
+    perks: [
+      "Includes all Silver benefits",
+      "Large logo placement",
+      "1-on-1 recruiting session or info session",
+      "Private campus & lab tour",
+      "Option to co-brand a specific project (e.g., company battery on our couch)",
+    ],
+  },
+  {
+    name: "Platinum",
+    amount: "$25,000+",
+    perks: [
+      "Includes all Gold benefits",
+      "Naming rights for a major robot/project",
+      "Primary logo placement across materials",
+      "Option for co-development / research projects with CRT",
     ],
   },
 ];
@@ -103,23 +115,25 @@ const tiers = [
   <section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-10 sm:pb-16">
     <h2 class="font-display text-xl sm:text-2xl text-orange-400">Sponsorship Tiers</h2>
 
-    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="mt-6 flex flex-wrap justify-center gap-6">
       {tiers.map((t) => (
-        <div class="rounded-2xl border border-white/10 bg-zinc-900/50 p-6 shadow-lg">
-          <div class="flex items-baseline justify-between">
-            <h3 class="font-display text-orange-400 text-lg">{t.name}</h3>
-            <span class="text-sm text-zinc-400">{t.amount}</span>
+        <div class="w-full sm:w-[20rem]">
+          <div class="rounded-2xl border border-white/10 bg-zinc-900/50 p-6 shadow-lg h-full">
+            <div class="flex items-baseline justify-between">
+              <h3 class="font-display text-orange-400 text-lg">{t.name}</h3>
+              <span class="text-sm text-zinc-400">{t.amount}</span>
+            </div>
+            <ul class="mt-4 space-y-2 text-zinc-300 text-sm leading-relaxed">
+              {t.perks.map((p) => (
+                <li class="flex gap-2">
+                  <svg viewBox="0 0 24 24" class="h-4 w-4 mt-1" fill="none" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{p}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <ul class="mt-4 space-y-2 text-zinc-300 text-sm leading-relaxed">
-            {t.perks.map((p) => (
-              <li class="flex gap-2">
-                <svg viewBox="0 0 24 24" class="h-4 w-4 mt-1" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>{p}</span>
-              </li>
-            ))}
-          </ul>
         </div>
       ))}
     </div>
