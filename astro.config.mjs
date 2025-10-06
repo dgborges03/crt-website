@@ -3,9 +3,11 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  // Make sure this project always uses its own port
+  // This tells Astro where your site will be hosted
+  site: 'https://crt.caltech.edu/',
+  base: '/', // ensure it builds for the root of the domain
   server: {
-    port: 4390,     // <- use a port not used by your other project
+    port: 4390,
     host: true,
     strictPort: true,
   },
