@@ -1,0 +1,117 @@
+---
+// src/pages/blog/[slug].astro
+import Layout from "../../layouts/Layout.astro";
+
+// NOTE: In Astro, getStaticPaths() needs access to data at module scope.
+// Keeping posts in the frontmatter can cause "not defined" issues.
+export const allPosts = [
+  // NEWS
+  {
+    title: "Combat Robotics: 3lb bots and hackathon are in progress!",
+    date: "Dec 2025",
+    slug: "combat-robotics-3lb-hack",
+    image: "/blog/placeholder-combat.jpg",
+    tags: ["Combat", "Fabrication"],
+    content: `
+CRT is ramping up our combat robotics program with a focus on 1lb and 3lb builds.
+We’re iterating on drivetrains, weapons, and durability—while also working toward
+a collegiate league with nearby universities.
+
+What’s next:
+- finalize drivetrain prototype
+- weapon testing + safety checks
+- competition-ready build timeline
+    `.trim(),
+  },
+  {
+    title: "CCBR Quadruped collaboration continues",
+    date: "Dec 2025",
+    slug: "ccbr-quadruped-collaboration",
+    image: "/blog/placeholder-quadruped.jpg",
+    tags: ["Legged", "Controls", "Open Source"],
+    content: `
+An open-source legged robotics collaboration between Caltech, Columbia, Berkeley, and Rutgers.
+We’re exploring quadruped locomotion and control and contributing to shared tooling and documentation.
+    `.trim(),
+  },
+
+  // UPDATES
+  {
+    title: "VTOL Drone / UAV: airframe + autonomy roadmap",
+    date: "Coming Soon",
+    slug: "vtol-uav-roadmap",
+    image: "/blog/placeholder-uav.jpg",
+    tags: ["Aero", "Autonomy"],
+    content: `
+We’re planning the roadmap for the VTOL platform—airframe iteration, avionics integration,
+and a flight testing plan that emphasizes safety and data-driven improvements.
+    `.trim(),
+  },
+  {
+    title: "RoboSub: underwater autonomy + sensing experiments",
+    date: "Coming Soon",
+    slug: "robosub-autonomy-sensing",
+    image: "/blog/placeholder-robosub.jpg",
+    tags: ["AUV", "Perception"],
+    content: `
+RoboSub is back—focused on autonomy, sensing, and robust underwater operation.
+We’re exploring navigation, perception, and systems integration for reliable field runs.
+    `.trim(),
+  },
+];
+
+export async function getStaticPaths() {
+  return allPosts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = allPosts.find((p) => p.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+---
+
+<Layout>
+  <section class="border-b border-white/5 bg-zinc-950/60">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <p class="text-xs text-zinc-400">{post.date}</p>
+      <h1 class="mt-2 font-display text-2xl sm:text-4xl text-orange-400">
+        {post.title}
+      </h1>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        {post.tags.map((t) => (
+          <span class="text-xs rounded-full border border-white/10 px-3 py-1 text-zinc-300">
+            {t}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <figure class="overflow-hidden rounded-2xl border border-white/10 bg-zinc-900/50 shadow-lg">
+      <img
+        src={post.image}
+        alt={post.title}
+        class="h-72 w-full object-cover md:h-[420px]"
+        loading="lazy"
+        decoding="async"
+      />
+    </figure>
+
+    <article class="mt-8 text-zinc-300 leading-relaxed font-body whitespace-pre-line">
+      {post.content}
+    </article>
+
+    <div class="mt-10">
+      <a
+        href="/"
+        class="inline-flex items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5"
+      >
+        ← Back home
+      </a>
+    </div>
+  </section>
+</Layout>

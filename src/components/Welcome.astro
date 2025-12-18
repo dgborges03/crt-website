@@ -3,28 +3,126 @@
   \(G_G)/
  -->
 
+ ---
+ const newsPosts = [
+   {
+     title: "Combat Robotics: 3lb bots and hackathon are in progress!",
+     date: "Dec 2025",
+     excerpt:
+       "Right now, we are planning on creating ",
+     slug: "combat-robotics-3lb-hack",
+     image: "/blog/placeholder-combat.jpg",
+     tags: ["Combat", "Fabrication"],
+   },
+   {
+     title: "CCBR Quadruped collaboration continues",
+     date: "Dec 2025",
+     excerpt:
+       "Open-source legged robotics work with Caltech, Columbia, Berkeley, and Rutgers—exploring locomotion and control.",
+     slug: "ccbr-quadruped-collaboration",
+     image: "/blog/placeholder-quadruped.jpg",
+     tags: ["Legged", "Controls", "Open Source"],
+   },
+   {
+    title: "CCBR Quadruped collaboration continues",
+    date: "Dec 2025",
+    excerpt:
+      "Open-source legged robotics work with Caltech, Columbia, Berkeley, and Rutgers—exploring locomotion and control.",
+    slug: "ccbr-quadruped-collaboration",
+    image: "/blog/placeholder-quadruped.jpg",
+    tags: ["Legged", "Controls", "Open Source"],
+  },
+  {
+    title: "CCBR Quadruped collaboration continues",
+    date: "Dec 2025",
+    excerpt:
+      "Open-source legged robotics work with Caltech, Columbia, Berkeley, and Rutgers—exploring locomotion and control.",
+    slug: "ccbr-quadruped-collaboration",
+    image: "/blog/placeholder-quadruped.jpg",
+    tags: ["Legged", "Controls", "Open Source"],
+  },
+  {
+    title: "CCBR Quadruped collaboration continues",
+    date: "Dec 2025",
+    excerpt:
+      "Open-source legged robotics work with Caltech, Columbia, Berkeley, and Rutgers—exploring locomotion and control.",
+    slug: "ccbr-quadruped-collaboration",
+    image: "/blog/placeholder-quadruped.jpg",
+    tags: ["Legged", "Controls", "Open Source"],
+  },
+ ];
+ 
+ const updatesPosts = [
+   {
+     title: "VTOL Drone / UAV: airframe + autonomy roadmap",
+     date: "Coming Soon",
+     excerpt:
+       "We’re planning test flights and a navigation stack—focused on safe iteration and real-world data.",
+     slug: "vtol-uav-roadmap",
+     image: "/blog/placeholder-uav.jpg",
+     tags: ["Aero", "Autonomy"],
+   },
+   {
+     title: "RoboSub: underwater autonomy + sensing experiments",
+     date: "Coming Soon",
+     excerpt:
+       "From navigation to perception, we’re building systems that can operate reliably beneath the surface.",
+     slug: "robosub-autonomy-sensing",
+     image: "/blog/placeholder-robosub.jpg",
+     tags: ["AUV", "Perception"],
+   },
+ ];
+ ---
+
 <!-- Hero / Landing -->
 <section aria-label="Team hero" class="relative isolate">
   <div class="absolute inset-0 -z-10">
-    <img src="team-picture.jpg" alt="CRT team" class="h-full w-full object-cover opacity-100" />
+    <!-- <img src="team-picture.jpg" alt="CRT team" class="h-full w-full object-cover opacity-100" /> -->
+        <!-- Hero image cycle (stacked + fading) -->
+        <div class="absolute inset-0">
+          <img
+            src="landing-imgs/team-picture1.jpg"
+            alt="CRT team"
+            class="hero-slide absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-1000"
+            data-hero
+          />
+          <img
+            src="landing-imgs/club-fair.jpg"
+            alt="CRT at club fair."
+            class="hero-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-1000"
+            data-hero
+          />
+          <img
+            src="landing-imgs/robo-couchST.jpg"
+            alt="CRT taking the couch on the street."
+            class="hero-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-1000"
+            data-hero
+          />
+          <img
+            src="landing-imgs/donny-squ.jpeg"
+            alt="Crt member feeding a squirrel."
+            class="hero-slide absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-1000"
+            data-hero
+          />
+        </div>
     <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,111,0,0.12),transparent_50%)]"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-zinc-950/40 via-zinc-950/60 to-zinc-950"></div>
+    <div class="absolute inset-0 bg-gradient-to-b to-zinc-950"></div>
   </div>
 
-  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 pb-28 sm:pt-24 sm:pb-36">
+  <div class="mx-auto text-center max-w-5xl px-4 sm:px-6 lg:px-8 pt-16 pb-28 sm:pt-24 sm:pb-36">
     <!-- moved up slightly by lowering top padding -->
     <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight font-display text-orange-400 mb-8">
       Caltech Robotics Team
     </h1>
     <!-- pushed down slightly by giving extra margin-top -->
-    <p class="mt-40 max-w-3xl text-base sm:text-lg text-zinc-300 font-body">
+    <p class="mt-50  text-base sm:text-lg text-zinc-300 font-body">
       We're a student-led group at <span class="text-orange-400 font-semibold">California Institute of Technology</span>.
       Our group consist of builders and engineers who love turning
       ideas into working machines. From combat robots and couch vehicles to drones,
       quadrupeds, and underwater robots, we push ourselves to create projects that
       are as fun as they are ambitious.
     </p>
-    <div class="mt-12 flex flex-wrap gap-3">
+    <div class="mt-12 flex justify-center flex-wrap gap-3">
       <a href="/projects" class="inline-flex items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5">Explore Projects</a>
       <a href="/contact" class="inline-flex items-center rounded-xl bg-orange-500/90 px-4 py-2 font-display text-zinc-900 hover:bg-orange-400">Get in Touch</a>
     </div>
@@ -43,3 +141,138 @@
     through creative, collaborative engineering.
   </p>
 </section>
+
+
+<!-- News -->
+<section id="news" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+    <div>
+      <h2 class="text-xl sm:text-2xl font-semibold font-display text-orange-400">News</h2>
+      <p class="mt-3 text-zinc-300 leading-relaxed font-body max-w-3xl">
+        The biggest CRT announcements and highlights.
+      </p>
+    </div>
+    <a
+      href="/blog"
+      class="inline-flex w-fit items-center rounded-xl border border-white/10 px-4 py-2 hover:bg-white/5"
+    >
+      All posts
+      <svg viewBox="0 0 24 24" class="ml-2 h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+      </svg>
+    </a>
+  </div>
+
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    {newsPosts.map((p) => (
+      <a
+        href={`/blog/${p.slug}`}
+        class="group rounded-2xl border border-white/10 bg-zinc-900/50 shadow-lg overflow-hidden hover:bg-white/5 transition"
+      >
+        <div class="h-44 w-full bg-zinc-950/40">
+          <img
+            src={p.image}
+            alt={p.title}
+            class="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="p-6">
+          <p class="text-xs text-zinc-400">{p.date}</p>
+          <h3 class="mt-2 font-display text-orange-400 text-lg">{p.title}</h3>
+          <p class="mt-3 text-zinc-300 leading-relaxed font-body">{p.excerpt}</p>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            {p.tags.map((t) => (
+              <span class="text-xs rounded-full border border-white/10 px-3 py-1 text-zinc-300">{t}</span>
+            ))}
+          </div>
+
+          <div class="mt-5 inline-flex items-center gap-2 text-sm text-zinc-200">
+            Read more
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+<!-- Updates -->
+<section id="updates" class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+  <div>
+    <h2 class="text-xl sm:text-2xl font-semibold font-display text-orange-400">Updates</h2>
+    <p class="mt-3 text-zinc-300 leading-relaxed font-body max-w-3xl">
+      Smaller progress notes, plans, and what’s happening week-to-week.
+    </p>
+  </div>
+
+  <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+    {updatesPosts.map((p) => (
+      <a
+        href={`/blog/${p.slug}`}
+        class="group rounded-2xl border border-white/10 bg-zinc-900/50 shadow-lg overflow-hidden hover:bg-white/5 transition"
+      >
+        <div class="h-44 w-full bg-zinc-950/40">
+          <img
+            src={p.image}
+            alt={p.title}
+            class="h-full w-full object-cover opacity-90 group-hover:opacity-100 transition"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="p-6">
+          <p class="text-xs text-zinc-400">{p.date}</p>
+          <h3 class="mt-2 font-display text-orange-400 text-lg">{p.title}</h3>
+          <p class="mt-3 text-zinc-300 leading-relaxed font-body">{p.excerpt}</p>
+
+          <div class="mt-4 flex flex-wrap gap-2">
+            {p.tags.map((t) => (
+              <span class="text-xs rounded-full border border-white/10 px-3 py-1 text-zinc-300">{t}</span>
+            ))}
+          </div>
+
+          <div class="mt-5 inline-flex items-center gap-2 text-sm text-zinc-200">
+            Read more
+            <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+
+<script is:inline>
+  const slides = Array.from(document.querySelectorAll('[data-hero]'));
+  let i = 0;
+
+  // Time for how long each img stays on screen
+  const intervalMs = 10000;
+
+  // fade helper
+  function show(idx) {
+    slides.forEach((el, j) => {
+      el.classList.toggle('opacity-100', j === idx);
+      el.classList.toggle('opacity-0', j !== idx);
+    });
+  }
+
+  // start
+  show(i);
+
+  // cycle
+  setInterval(() => {
+    i = (i + 1) % slides.length;
+    show(i);
+  }, intervalMs);
+</script>
+
